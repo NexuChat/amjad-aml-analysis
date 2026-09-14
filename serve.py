@@ -24,6 +24,10 @@ class Handler(SimpleHTTPRequestHandler):
         self.send_header("WWW-Authenticate", 'Basic realm="Amjad AML analysis", charset="UTF-8"')
         self.send_header("Content-Type", "text/plain; charset=utf-8")
         self.end_headers(); self.wfile.write("Password required.\n".encode())
+    def end_headers(self):
+        self.send_header("Cache-Control", "no-store, max-age=0")
+        self.send_header("X-Content-Version", "2")
+        super().end_headers()
     def log_message(self, *a): pass
 
 ThreadingHTTPServer(("127.0.0.1", int(sys.argv[1])), Handler).serve_forever()

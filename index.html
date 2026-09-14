@@ -33,16 +33,18 @@ html{direction:rtl}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans Arabic","Noto Sans Arabic",system-ui,sans-serif;font-size:16px;line-height:1.8;padding-block:0 72px;padding-inline:clamp(16px,3vw,32px)}
-@media (max-width:600px){body{font-size:15px;line-height:1.75}}
+@media (max-width:600px){body{font-size:15px;line-height:1.75}h2{font-size:1.3rem}.spec dl{padding:10px 12px}.spec header{padding:10px 12px}.verdict{padding:14px 14px}.summary{padding:16px 14px}.gap div,.stack div,.phases div,.two>div{padding:12px 12px}.tbl{position:relative}.tbl::after{content:"← اسحب الجدول →";display:block;font-size:.72rem;color:var(--ink-2);padding:6px 10px;border-top:1px solid var(--rule);text-align:center}}
 h1,h2,h3{font-family:"Readex Pro","IBM Plex Sans Arabic",sans-serif;text-wrap:balance;line-height:1.3;margin:0}
 h1{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:700}
 h2{font-size:1.45rem;font-weight:700;margin-block:0 16px;padding-top:8px}
 h3{font-size:1.1rem;font-weight:500;color:var(--accent-ink);margin-block:20px 6px}
 p{margin:0 0 12px;max-width:72ch}
+code{overflow-wrap:anywhere}
 code,.code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.86em;direction:ltr;unicode-bidi:isolate;background:var(--code-bg);padding:1px 6px;border-radius:4px}
-pre{direction:ltr;text-align:left;background:var(--code-bg);padding:14px 16px;border-radius:6px;overflow-x:auto;font-family:"IBM Plex Mono",monospace;font-size:.82rem;line-height:1.55;margin:8px 0 16px}
+pre{direction:ltr;text-align:left;max-width:100%;background:var(--code-bg);padding:14px 16px;border-radius:6px;overflow-x:auto;font-family:"IBM Plex Mono",monospace;font-size:.82rem;line-height:1.55;margin:8px 0 16px}
 .wrap{max-width:1220px;margin:0 auto;display:grid;grid-template-columns:236px minmax(0,1fr);gap:48px;align-items:start}
-@media (max-width:900px){.wrap{grid-template-columns:1fr;gap:0}}
+.wrap>*{min-width:0}
+@media (max-width:900px){.wrap{grid-template-columns:minmax(0,1fr);gap:0}}
 header.mast{max-width:1220px;margin:0 auto;padding-block:clamp(28px,5vw,48px) 28px;border-bottom:1px solid var(--rule);margin-bottom:28px}
 .eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px;font-family:"IBM Plex Mono",monospace;direction:ltr;unicode-bidi:isolate;display:inline-block}
 .lede{color:var(--ink-2);font-size:1.02rem;max-width:70ch;margin-top:12px}
@@ -128,14 +130,14 @@ a{color:var(--accent-ink)}
 </head>
 <body>
 <header class="mast">
-  <span class="eyebrow">AML / CFT · SYSTEM SPECIFICATION · EXPLORATORY DRAFT v2</span>
+  <span class="eyebrow">AML / CFT · SYSTEM SPECIFICATION · EXPLORATORY DRAFT</span>
   <h1>نظام إدارة المخاطر ومكافحة غسل الأموال — بنك أمجاد</h1>
   <p class="lede">مسودة استكشاف مشروطة: تحليل ومواصفات مبنية على ملفَي البنك (المكوّنات الرئيسية وقائمة السيناريوهات) وطلبه، والسيناريوهات الأربعة عشر التي أشّر عليها البنك بخط اليد. تُعتمد بعد إغلاق بنود الأولوية الصفرية في القسم ١٢. كل عتبة أدناه معامل قابل للضبط بقيمة ابتدائية مقترحة، لا قيمة تشريعية؛ القيم النهائية تُعتمد مع وحدة الامتثال وفق تعليمات الجهة الرقابية المختصة.</p>
   <div class="facts">
     <span>المصادر: <b>3 ملفات + طلب العميل</b></span>
     <span>القائمة المرفقة: <b>72 عنوانًا HPAML</b> (عناوين بلا مواصفات)</span>
     <span>أولوية البنك: <b>14 سيناريو</b></span>
-    <span>الطلب: <b>2026‑09‑15</b> · الإصدار: <b>2 (2026‑09‑15)</b></span>
+    <span>التاريخ: <b>2026‑09‑15</b></span>
   </div>
 </header>
 
@@ -664,7 +666,7 @@ a{color:var(--accent-ink)}
 
 <section id="lenses">
 <h2>١٢ · ما بين السطور وزوايا النظر</h2>
-<p>الوثيقة رُوجعت من سبع زوايا على مرحلتين مستقلتين. هذا ما أضافته كل زاوية ولم يكن ظاهرًا من الطلب، وقد أُدمج أثره في الأقسام أعلاه. ثم قائمة التعديلات المُطبَّقة والمتبقية بأولويتها.</p>
+<p>الوثيقة رُوجعت من سبع زوايا. هذا ما أضافته كل زاوية ولم يكن ظاهرًا من الطلب، وقد أُدمج أثره في الأقسام أعلاه، ثم ما بقي مفتوحًا بأولويته.</p>
 <div class="two">
 <div><h3>الجهة الرقابية ووحدة المعلومات المالية</h3><ul>
 <li>أول سؤال: «لماذا يغطي هذا النظام مخاطر <em>هذا</em> البنك، وأين الدليل؟» — يجيب عنه تقييم مخاطر المؤسسة ومصفوفة التزام ↔ ضابط ↔ مالك ↔ دليل قبول، لا عدد السيناريوهات.</li>
@@ -686,7 +688,7 @@ a{color:var(--accent-ink)}
 <li>التكامل أكبر من «سحب جداول»: القيد قد لا يحمل المودع الفعلي أو أطراف الحوالة؛ العملية الواحدة بمعرفات مختلفة في البطاقات والحوالات والنظام الأساسي؛ «وقت الحدث» يختلف بين المصادر؛ التصحيح بأثر رجعي يغيّر نافذة قديمة وبلاغًا مرسلًا.</li>
 <li>مورد النظام الأساسي قد يقيد القراءة المباشرة ويتطلب موصلًا مدفوعًا واعتمادًا؛ موقع أجهزة ATM وهوية المودع تأتي من أنظمة البطاقات والفرع (تكاملان إضافيان).</li>
 <li>نافذة الإقفال الليلي محدودة؛ زمن المعالجة يُقاس في التجربة على المستخرج قبل الوعد بتقارير صباحية.</li>
-<li>ما صُحّح: مسار أدنى واحد بدل تعداد بدائل؛ سياسة اعتماد لكل مصدر بدل التوقف العام؛ مواصفة لغة القواعد؛ استراتيجية اللقطات والاحتفاظ؛ الترحيل والتراجع.</li></ul></div>
+<li>أثرها في الوثيقة: مسار أدنى واحد بدل تعداد بدائل؛ سياسة اعتماد لكل مصدر بدل التوقف العام؛ مواصفة لغة القواعد؛ استراتيجية اللقطات والاحتفاظ؛ الترحيل والتراجع.</li></ul></div>
 <div><h3>الإدارة العليا والمالية</h3><ul>
 <li>الوثيقة تطلب ضمنًا تمويل منتج مستمر لا مشروعًا ينتهي؛ التكلفة الحقيقية في التشغيل: المعايرة، تحديث القوائم، فريق التحقيق، المراجعة السنوية.</li>
 <li>الشراء/التوسعة/البناء/الهجين يُحسم بتكلفة إجمالية على أفق موحد (القسم ١٠)؛ البناء خاطئ مع موعد إلزامي قريب أو فريق مؤقت أو بيانات لا يصل إليها البنك.</li>
@@ -696,22 +698,6 @@ a{color:var(--accent-ink)}
 <li>سجل استثناءات مركزي؛ صلاحيات البلاغات تشمل البحث والتصدير والبريد والنسخ الاحتياطية؛ وصول المورد محدود المدة ومراقَب؛ استعادة تُعيد البيانات والمفاتيح والقواعد والقوائم وقرارات التحقيق وطوابير الإرسال معًا.</li>
 <li>الذكاء الاصطناعي الاختياري: لا بيانات خارج النطاق المعتمد، مقاومة تعليمات خبيثة داخل مستندات العملاء، احترام صلاحيات المحلل، وإسناد كل ادعاء إلى دليل.</li></ul></div>
 </div>
-
-<h3>ما صُحّح في هذا الإصدار (أخطاء الإصدار الأول)</h3>
-<ul>
-<li>العدد: 72 عنوانًا فريدًا لا 74؛ و«سبع شاشات» = سبع وظائف تحت شاشة رئيسية مع شاشة دخول.</li>
-<li>الحرف <code>L</code> كان يؤدي وظيفتين (حد قانوني وعتبة داخلية بقيم حسب المخاطر) — فُصلا إلى <code>L</code> قانوني ثابت و<code>T</code> عتبة كشف تُعاير.</li>
-<li>شرط «المجموع ≥ L» في 10007/10014 زائد رياضيًا (3 × 0.5L = 1.5L) — أُزيل وأُضيف نطاق أدنى.</li>
-<li>10006 كان يُعاير على أشهر تقويمية لقاعدة 30 يومًا متحركة، ويقبل الصافي مُطلِقًا — صُحّح.</li>
-<li>10017: <code>I_m</code> لم يكن معرَّفًا و<code>Δ_min</code> بلا تحقق من الموجبية — صُحّح، وأُضيف قياس داخل الشهر.</li>
-<li>«خفض عتبات كل السيناريوهات 50%» كان غير معرَّف رياضيًا — صار تركيبًا معتمدًا على عتبات المبالغ في قواعد مسمّاة دون تراكب.</li>
-<li>مثال JSON حمل رقم اختبار تاريخي بلا سند وقيمًا بلا عملة — أُزيل الرقم ووُصف المثال بأنه اصطناعي.</li>
-<li>«الدفعات الليلية كما طلب البنك» نسبة غير صحيحة — البنك لم يحدد التكرار.</li>
-<li>«PostgreSQL يكفي لعشرات الملايين شهريًا» ادعاء بلا قياس — صار مشروطًا باختبار حمل.</li>
-<li>الدمج الآلي لتنبيهات العميل خلال 7 أيام كان مفرط التبسيط — صار اقتراح ربط قابلًا للمراجعة.</li>
-<li>التنبيه اليدوي <code>HPAML00000</code> والبحث في المعاملات غير المنبّهة كانا غائبين — أُضيفا.</li>
-<li>تاريخ الإصدار 14/9 سبق تاريخ الطلب 15/9 (فرق منطقة زمنية) — وُحّد.</li>
-</ul>
 
 <h3>ما بقي مفتوحًا بأولويته</h3>
 <div class="tbl"><table><thead><tr><th>الأولوية</th><th>البند</th><th>لماذا</th></tr></thead><tbody>
@@ -727,7 +713,7 @@ a{color:var(--accent-ink)}
 
 </main>
 </div>
-<footer>مسودة استكشاف مشروطة، الإصدار 2 — أُعدّت من ملفات البنك الثلاثة وطلب العميل كما وردت في 2026‑09‑15 وروجعت من سبع زوايا. العتبات معاملات مقترحة للنقاش مع وحدة الامتثال، وليست قيمًا نظامية.</footer>
+<footer>مسودة استكشاف مشروطة — أُعدّت من ملفات البنك الثلاثة وطلب العميل كما وردت في 2026‑09‑15 وروجعت من سبع زوايا. العتبات معاملات مقترحة للنقاش مع وحدة الامتثال، وليست قيمًا نظامية.</footer>
 
 <button class="totop" type="button" aria-label="إلى الأعلى" id="totop">↑</button>
 <script>
